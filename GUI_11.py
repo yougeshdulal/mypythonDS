@@ -68,3 +68,42 @@ btn2 = tk.Button(master,text="CANCEL",command=master.destroy).grid(row=7,column=
 
 master.mainloop()
 
+#..............................................................
+import tkinter
+import tkinter as tk
+from PIL import Image, ImageTk, ImageFilter, ImageOps
+master = tk.Tk()
+
+master.geometry('900x350')
+master.title("SPIDER MAN")
+master.config(bg="Black")
+master.iconphoto(False, tk.PhotoImage(file='imgpng1.png'))
+
+image = Image.open("img11.png")
+# image = image.filter(ImageFilter.SHARPEN)
+image = ImageOps.grayscale(image)
+
+
+canvas = tk.Canvas(master, height=300, width=300, bg='skyblue')
+canvas.pack()
+
+left_frame = tk.Frame(master, height=200, width=200, bg='white')
+left_frame.pack(side='left', fill='y')
+
+
+btn1 = tkinter.Button(left_frame,text="click me")
+btn1.pack(pady='25')
+
+image = ImageTk.PhotoImage(image)
+# canvas.config(height=image.height(),width=image.width())
+canvas.create_image(0, 0, image=image, anchor='nw')
+
+
+
+
+
+
+master.mainloop()
+
+
+
